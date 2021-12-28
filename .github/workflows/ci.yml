@@ -1,0 +1,24 @@
+name: Test Jenkins Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  testaction:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v2
+
+      - id: testjenkinsaction
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
+        with:
+          jenkins-server: "http://35.232.120.3:8080/" # URL of the jenkins server
+          jenkins-job: "test" # The name of the jenkins job to run
+          jenkins-username: "Shivam_purohit" # user name for accessing jenkins
+          jenkins-pat: "11860c05333fedaabe894cab59729c3b19" # personal Access token for accessing Jenkins
+          poll-time: 10 # how often to poll the jenkins server for results
+          timeout-value: 600 # How long to poll before timing out the action
+          verbose: true # true/false - turns on extra logging
+
