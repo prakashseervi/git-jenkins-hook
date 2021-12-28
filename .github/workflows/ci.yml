@@ -1,7 +1,6 @@
 name: Test Jenkins Action
 
-on:
-  workflow_dispatch:
+on: [push]
 
 jobs:
   testaction:
