@@ -1,6 +1,6 @@
 name: Test Jenkins Action
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   testaction:
@@ -21,3 +21,5 @@ jobs:
           timeout-value: 600 # How long to poll before timing out the action
           verbose: true # true/false - turns on extra logging
 
+  build_and_deploy_job:
+    if: github.event_name == 'workflow_dispatch'
